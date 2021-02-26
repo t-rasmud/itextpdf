@@ -434,6 +434,7 @@ public class PdfWriter extends DocWriter implements
          * @throws IOException
          */
 
+        @SuppressWarnings("iteration:method.invocation.invalid")  // At line 513
         public void writeCrossReferenceTable(final OutputStream os, final PdfIndirectReference root, final PdfIndirectReference info, final PdfIndirectReference encryption, final PdfObject fileID, final long prevxref) throws IOException {
             int refNumber = 0;
             if (writer.isFullCompression()) {

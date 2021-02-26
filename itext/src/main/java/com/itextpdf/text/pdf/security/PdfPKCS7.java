@@ -157,7 +157,9 @@ public class PdfPKCS7 {
      * @param certsKey the /Cert key
      * @param provider the provider or <code>null</code> for the default provider
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked",
+            "iteration:method.invocation.invalid"  // At line 170; cr.engineReadAll returns all certificates (non-empty)
+    })
 	public PdfPKCS7(byte[] contentsKey, byte[] certsKey, String provider) {
         try {
             this.provider = provider;

@@ -41,6 +41,7 @@ import com.itextpdf.xmp.XMPConst;
 import com.itextpdf.xmp.XMPError;
 import com.itextpdf.xmp.XMPException;
 import com.itextpdf.xmp.options.PropertyOptions;
+import org.checkerframework.checker.iteration.qual.HasNext;
 
 
 /**
@@ -396,7 +397,25 @@ class XMPNode implements Comparable
 	{
 		return qualifier != null  &&  qualifier.size() > 0;
 	}
-	
+
+	class XMPIterator implements Iterator{
+		final Iterator it = getQualifier().iterator();
+		public boolean hasNext()
+		{
+			return it.hasNext();
+		}
+
+		public Object next(@HasNext XMPIterator this)
+		{
+			return it.next();
+		}
+
+		public void remove()
+		{
+			throw new UnsupportedOperationException(
+					"remove() is not allowed due to the internal contraints");
+		}
+	}
 	
 	/**
 	 * @return Returns an iterator for the qualifier.
@@ -406,27 +425,7 @@ class XMPNode implements Comparable
 	{
 		if (qualifier != null)
 		{
-			final Iterator it = getQualifier().iterator();
-			
-			return new Iterator()
-			{
-				public boolean hasNext()
-				{
-					return it.hasNext();
-				}
-
-				public Object next()
-				{
-					return it.next();
-				}
-
-				public void remove()
-				{
-					throw new UnsupportedOperationException(
-							"remove() is not allowed due to the internal contraints");
-				}
-				
-			};
+			return new XMPIterator();
 		}
 		else
 		{

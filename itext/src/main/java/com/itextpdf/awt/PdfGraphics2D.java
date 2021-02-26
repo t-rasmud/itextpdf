@@ -1632,6 +1632,7 @@ public class PdfGraphics2D extends Graphics2D {
                 ImageWriteParam iwparam = new JPEGImageWriteParam(Locale.getDefault());
                 iwparam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                 iwparam.setCompressionQuality(jpegQuality);//Set here your compression rate
+                @SuppressWarnings("iteration:method.invocation.invalid")
                 ImageWriter iw = ImageIO.getImageWritersByFormatName("jpg").next();
                 ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
                 iw.setOutput(ios);
