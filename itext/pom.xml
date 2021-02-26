@@ -168,7 +168,7 @@
 		<dependency>
 			<groupId>org.checkerframework</groupId>
 			<artifactId>checker-qual</artifactId>
-			<version>3.8.1-SNAPSHOT</version>
+			<version>3.10.1-SNAPSHOT</version>
 		</dependency>
 		<!-- If using JDK 8, add the following additional dependency. -->
 		<dependency>
@@ -217,7 +217,7 @@
 								<path>
 									<groupId>org.checkerframework</groupId>
 									<artifactId>checker</artifactId>
-									<version>3.8.1-SNAPSHOT</version>
+									<version>3.10.1-SNAPSHOT</version>
 								</path>
 							</annotationProcessorPaths>
 							<annotationProcessors>
@@ -226,7 +226,7 @@
 							</annotationProcessors>
 							<compilerArgs>
 								<!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
-								<!--<arg>"-AsuppressWarnings=contracts.conditional.postcondition.not.satisfied,contracts.postcondition.not.satisfied"</arg> &ndash;&gt;-->
+								<arg>"-AsuppressWarnings=contracts.conditional.postcondition.not.satisfied,contracts.postcondition.not.satisfied"</arg> -->
 							</compilerArgs>
 						</configuration>
 					</plugin>
@@ -236,7 +236,7 @@
 				<dependency>
 					<groupId>org.checkerframework</groupId>
 					<artifactId>checker</artifactId>
-					<version>3.8.1-SNAPSHOT</version>
+					<version>3.10.1-SNAPSHOT</version>
 				</dependency>
 			</dependencies>
 		</profile>
